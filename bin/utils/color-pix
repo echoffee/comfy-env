@@ -1,0 +1,59 @@
+#!/bin/bash
+
+cancel="\\033[0m";
+bg1="\\033[0;41m";
+bg2="\\033[0;42m";
+bg3="\\033[0;43m";
+bg4="\\033[0;44m";
+bg5="\\033[0;45m";
+bg6="\\033[0;46m";
+bg7="\\033[0;47m";
+bg8="\\033[0;48m";
+e5="     ";
+dot=".";
+dash="/";
+arg_color="--colors";
+arg1=$1;
+if [[ "$1" == "$arg_color" ]]
+then
+    echo -e "$bg1$e5$bg2$e5$bg3$e5$bg4$e5$bg5$e5$bg6$e5$bg7$e5$bg8$e5$cancel";
+    echo -e "$bg1 bg1 $bg2 bg2 $bg3 bg3 $bg4 bg4 $bg5 bg5 $bg6 bg6 $bg7 bg7 $bg8 bg8 $cancel"
+    echo -e "$bg1$e5$bg2$e5$bg3$e5$bg4$e5$bg5$e5$bg6$e5$bg7$e5$bg8$e5$cancel";
+else
+current_command="sed -E";
+for index in '0' '1' '2' '3' '4' '5' '6' '7'
+do
+    current_bg=$bg1;
+    case $index in
+        0)
+            current_bg=$bg1;;
+        1)
+            current_bg=$bg2;;
+        2)
+            current_bg=$bg3;;
+        3)
+            current_bg=$bg4;;
+        4)
+            current_bg=$bg5;;
+        5)
+            current_bg=$bg6;;
+        6)
+            current_bg=$bg7;;
+        7)
+            current_bg=$bg8;;
+    esac
+    current_char=${arg1:index:1};
+    if [[ "$current_char" == "$dot" ]]
+    then
+        current_char="\\$dot";
+    fi
+    if [[ "$current_char" == "$dash" ]]
+    then
+        current_char="\\$dash";
+    fi
+    current_command="$current_command -e \"s/$current_char/\\\\$current_bg \\\\$cancel/g\"";
+done
+current_command="$current_command -e \"s/^/echo \\\"/g\" -e \"s/\$/\\\"\;/g\"";
+current_command="$current_command $2 > $2.sh";
+echo $current_command;
+fi

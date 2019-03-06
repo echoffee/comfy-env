@@ -1,0 +1,10 @@
+[core]
+	editor = vim
+[color]
+	ui = true
+[color "status"]
+	changed = magenta bold
+	untracked = white dim
+	added = cyan bold
+[alias]
+	adog = log --all --decorate --oneline --graph
