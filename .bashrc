@@ -127,13 +127,40 @@ parse_git_branch() {
     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\:\1/'
 }
 
+sett() {
+    echo -ne "\e]0;$1\a"
+}
+
 export DISPLAY=localhost:0
 
-alias lls="ls --color=auto --group-directories-first -a"
+alias lls="ls --color=auto --group-directories-first -la"
 alias ls="ls --color=auto --group-directories-first"
 alias ezscreen="screen -S foo -t 0"
-alias tap="cd ~/cours/tap"
 alias r="ranger"
+alias vbc="vim ~/.bashrc"
+alias vsh="vim ~/.ssh/config"
+alias rez="source ~/.bashrc"
+alias n="vim +\"execute 'normal \\\\ww'\""
+alias ":q"="exit"
+alias stba="stb labri albatros"
+#Windows Programs
+alias vsc="/c/Program\ Files/Microsoft\ VS\ Code/Code.exe &"
+alias e="explorer.exe ."
+#Shortcuts
+alias tf="cd /d/tensorflow"
+#Node Shortcuts
+alias tsc="./node_modules/typescript/bin/tsc"
+
+
+#Python is dumb
+alias python="python3"
+alias pip="pip3"
+
+# Everything should be using Python 3
+# Python 2.x is installed by retarded NodeJS and cannot be switched to 3.x 
+# Set PySpark to use python 3
+export PYSPARK_PYTHON=python3
+
 
 export SCREENDIR=$HOME/.screen
 # export PS1="[\[\e[01;32m\]\u\[\e[m\]@\[\e[01;32m\]\h\[\e[m\]] \[\e[01;34m\]\W \[\e[m\]\[\e[01;32m\]\$(parse_git_branch)\[\e[m\]> "
@@ -146,6 +173,7 @@ export LS_COLORS=$(cat ~/config/colors_policy.config)
 
 export PATH="$HOME/.cabal/bin:/opt/cabal/1.22/bin:/opt/ghc/7.10.3/bin:$PATH"
 export PATH="$PATH:/home/echo/.local/bin"
+export PATH="$PATH:/home/echo/bin"
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
@@ -153,3 +181,7 @@ export PATH="$PATH:/home/echo/.local/bin"
 
 # added by travis gem
 [ -f /home/echo/.travis/travis.sh ] && source /home/echo/.travis/travis.sh
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
