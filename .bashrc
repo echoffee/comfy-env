@@ -16,7 +16,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
+HISTSIZE=3000
 HISTFILESIZE=2000
 
 # check the window size after each command and, if necessary,
@@ -185,3 +185,8 @@ export PATH="$PATH:/home/echo/bin"
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
 export JAVA_HOME="/usr/lib/jvm/java-8-openjdk-amd64/"
+alias pip="python -m pip"
+
+# starts ssh-agent meido
+eval `ssh-agent -s` > /dev/null
+alias meido="ssh-add ~/.ssh/id_rsa"
