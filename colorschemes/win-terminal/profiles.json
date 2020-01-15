@@ -1,0 +1,94 @@
+
+// To view the default settings, hold "alt" while clicking on the "Settings" button.
+// For documentation on these settings, see: https://aka.ms/terminal-documentation
+
+{
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+
+   "defaultProfile": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+
+ "profiles":[
+    {
+        // Make changes here to the powershell.exe profile
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "name": "Windows PowerShell",
+        "commandline": "powershell.exe",
+        "hidden": false
+    },
+    {
+        // Make changes here to the cmd.exe profile
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "name": "cmd",
+        "commandline": "cmd.exe",
+        "hidden": true
+    },
+    {
+        "guid": "{c6eaf9f4-32a7-5fdc-b5cf-066e8a4b1e40}",
+        "hidden": false,
+        "name": "WSL",
+        "source": "Windows.Terminal.Wsl",
+        "cursorShape": "filledBox",
+        "colorScheme": "illya",
+        "cursorColor": "#EA9FC0", 
+        "fontSize": 14,
+        "historySize": 10000,
+        "padding": "8, 8, 8, 8",
+        "snapOnInput": true,
+        "icon": ""
+    },
+    {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": true,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+    }
+],
+
+    // Add custom color schemes to this array
+    "schemes": [
+    {
+        "name": "illya",
+        "foreground": "#474747",
+        "background": "#FCFCFC",
+        "black": "#474747",
+        "red": "#E36BB2",
+        "green": "#EA9FC0",
+        "yellow": "#F2D6C3",
+        "blue": "#AFA0DC",
+        "purple": "#D498D0",
+        "cyan": "#C2AF8B",
+        "white": "#474747",
+        "brightBlack": "#474747",
+        "brightRed": "#E36BB2",
+        "brightGreen": "#EA9FC0",
+        "brightYellow": "#F2D6C3",
+        "brightBlue": "#AFA0DC",
+        "brightPurple": "#D498D0",
+        "brightCyan": "#A57267",
+        "brightWhite": "#474747",
+        "selectionBackground": "#474746",
+        "scrollbarState":"hidden"
+    }
+],
+
+        // Add any keybinding overrides to this array.
+        // To unbind a default keybinding, set the command to "unbound"
+    "keybindings": [
+        { "command": { "action": "switchToTab", "index": 0 }, "keys": ["ctrl+1"] },
+        { "command": { "action": "switchToTab", "index": 1 }, "keys": ["ctrl+2"] },
+        { "command": { "action": "switchToTab", "index": 2 }, "keys": ["ctrl+3"] },
+        { "command": { "action": "switchToTab", "index": 3 }, "keys": ["ctrl+4"] },
+        { "command": { "action": "switchToTab", "index": 4 }, "keys": ["ctrl+5"] },
+        { "command": { "action": "switchToTab", "index": 5 }, "keys": ["ctrl+6"] },
+        { "command": { "action": "switchToTab", "index": 6 }, "keys": ["ctrl+7"] },
+        { "command": { "action": "switchToTab", "index": 7 }, "keys": ["ctrl+8"] },
+        { "command": { "action": "switchToTab", "index": 8 }, "keys": ["ctrl+9"] },
+        { "command": "newTab", "keys": [ "ctrl+t" ] },
+        { "command": "splitHorizontal", "keys": [ "ctrl+shift+x" ] },
+        { "command": "splitVertical", "keys": [ "ctrl+shift+w" ] },
+        { "command": "closePane", "keys": [ "ctrl+w" ] },
+        { "command": "copy", "keys": [ "ctrl+insert" ] },
+        { "command": "paste", "keys": [ "shift+insert" ] }
+    ]
+}
+
